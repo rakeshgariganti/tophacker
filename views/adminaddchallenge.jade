@@ -1,0 +1,72 @@
+//
+   Created by rakesh on 20/1/15.
+
+extends layout
+block content
+  .ui.hidden.divider
+  .ui.centered.padded.page.grid
+    .ui.inverted.black.column
+      .ui.form
+        .ui.inverted.dividing.header Add Challenge
+        form(method="post",name="addchallengeform")
+          .two.fields
+            .field
+              .text.inverted Title
+              input(type="text",name="title",placeholder="Title of challenge")
+            .field
+
+          .field
+            .text.inverted Description
+            textarea(name="question",placeholder="About challenge")
+          .two.fields
+            .field
+              .text.inverted Starts At
+              input(name="startsat",type="text",placeholder="day month hour AM/PM Ex:10 May 5 PM")
+            .field
+              .text.inverted Ends At
+              input(name="endsat",type="text",placeholder="day month hour AM/PM Ex:10 May 5 PM")
+          .ui.inverted.dividing.header Problems
+          .ui.hidden.divider
+          -for(var i=1;i<=5;i++)
+            .text.inverted Problem #{i}
+            .field
+              .text.inverted Title
+              -titlename="p"+i+"title"
+              input(name=titlename,placeholder="Title")
+            .field
+              .text.inverted Description
+              -questionname="p"+i+"des"
+              textarea(name=questionname,placeholder="About Problem")
+            .two.fields
+              .field
+                .text.inverted Sample input
+                -si="p"+i+"sinput"
+                textarea(name=si,placeholder="Sample input to the problem")
+              .field
+                .text.inverted Sample output
+                -so="p"+i+"soutput"
+                textarea(name=so,placeholder="Sample output to the problem")
+            .ui.inverted.header Testcases for problem #{i}
+            -for(var j=1;j<=5;j++)
+                .field
+                  .text.inverted Testcase #{j}
+                  .two.fields
+                    .field
+                      .text.inverted Input
+                      -si="p"+i+"t"+j+"input"
+                      textarea(name=si,placeholder="Sample input to the problem")
+                    .field
+                      .text.inverted Output
+                      -so="p"+i+"t"+j+"output"
+                      textarea(name=so,placeholder="Sample output to the problem")
+          .field
+            button.ui.right.floated.green.button(type="submit") Add challenge
+
+
+
+
+
+
+  .ui.hidden.divider
+
+

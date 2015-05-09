@@ -1,0 +1,50 @@
+//
+   Created by rakesh on 18/1/15.
+
+extends layout
+
+block content
+  .ui.centered.inverted.padded.page.grid
+    .ui.three.column.row
+      .ui.seven.wide.centered.bordered.black.column
+        .ui.inverted.dividing.header Register
+        .ui.form
+          form(method="post",name="registerform",enctype="multipart/form-data")
+
+            .ui.left.icon.large.input
+              input(type="text",placeholder="First name",name="firstname",title="Only alphabets are allowed")
+              i.icon.user
+            .ui.hidden.divider
+
+            .ui.left.icon.large.input
+              input(type="text",placeholder="Family name",name="lastname",title="Only alphabets are allowed")
+              i.icon.user
+            .ui.hidden.divider
+
+            .ui.left.icon.large.input
+              input(type="text",placeholder="Username",name="username",title="Username should not contain spaces and special characters,and min length is 6, max length is 15")
+              i.icon.user
+            .ui.hidden.divider
+            .ui.left.icon.large.input
+              input(type="password",placeholder="Password",name="password",title="6<length(password)<15")
+              i.icon.lock
+            .ui.hidden.divider
+            .ui.left.icon.large.input
+              input(type="password",placeholder="Re-type",name="retype")
+              i.icon.lock
+            .ui.hidden.divider
+            .ui.input
+              select(name="gender")
+                option(value="") Gender
+                option(value="male") Male
+                option(value="female") Female
+            .ui.hidden.divider
+            .ui.left.icon.large.input
+              .ui.small.inverted.header Avatar
+              input(type="file",name="avatar",title="this Avatar will be featured in the main page,if you become TopHacker")
+            .ui.hidden.divider
+            .ui.one.row.grid
+              .ui.row
+                .right.aligned.column
+                    button.ui.button.green(type="submit") Register
+  .ui.hidden.divider

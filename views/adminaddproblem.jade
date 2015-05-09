@@ -1,0 +1,45 @@
+//
+   Created by rakesh on 20/1/15.
+extends layout
+block content
+  .ui.hidden.divider
+  .ui.centered.padded.page.grid
+    .ui.inverted.black.column
+      .ui.form
+        .ui.inverted.dividing.header Add Problem
+        form(method="post",name="addproblemform")
+          .two.fields
+            .field
+              .text.inverted Title
+              -titlename="title"
+              input(name=titlename,placeholder="Title")
+            .field
+          .field
+            .text.inverted Description
+            -questionname="des"
+            textarea(name=questionname,placeholder="About Problem")
+          .two.fields
+            .field
+              .text.inverted Sample input
+              -si="sinput"
+              textarea(name=si,placeholder="Sample input to the problem")
+            .field
+              .text.inverted Sample output
+              -so="soutput"
+              textarea(name=so,placeholder="Sample output to the problem")
+          .ui.inverted.header Testcases for problem
+          -for(var j=1;j<=5;j++)
+            .field
+              .text.inverted Testcase #{j}
+              .two.fields
+                .field
+                  .text.inverted Input
+                  -si="t"+j+"input"
+                  textarea(name=si,placeholder="Sample input to the problem")
+                .field
+                  .text.inverted Output
+                  -so="t"+j+"output"
+                  textarea(name=so,placeholder="Sample input to the problem")
+          .field
+            button.ui.right.floated.green.button(type="submit") Add problem
+  .ui.hidden.divider

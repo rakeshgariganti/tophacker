@@ -1,0 +1,24 @@
+extends layout
+block content
+  .ui.hidden.divider
+  .ui.centered.padded.page.grid
+    .ui.inverted.black.column(style="min-height:400px;")
+      if data
+        .ui.large.inverted.header #{data.title}
+          if solved
+            a.ui.right.floated.green.button(href="/challenge") Back
+            .ui.right.floated.green.label Solved
+          else
+            a.ui.right.floated.green.button(href='/challenge/'+data._id+'/solve') Give me testcase
+        .ui.divider
+        .ui.medium.text #{data.description}
+        .ui.divider
+        .ui.two.column.centered.row
+          if !data.solved
+            .ui.left.floated.column
+              .ui.medium.inverted.header Sample Input
+              .ui.white.message #{data.sinput}
+            .ui.right.floated.column
+              .ui.medium.inverted.header Sample Output
+              .ui.white.message #{data.soutput}
+.ui.hidden.divider

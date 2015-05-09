@@ -1,0 +1,21 @@
+extends layout
+block content
+    .ui.hidden.divider
+    .ui.centered.padded.page.grid(style="min-height:300px;")
+      .ui.inverted.black.column
+        if data
+          .ui.large.inverted.header #{data.title}
+            button.ui.right.floated.green.button(onclick="$('#solveform').submit()") Send
+          .ui.divider
+          .ui.two.column.grid
+            .ui.column
+              .ui.inverted.header Testcase Input
+              if testcase
+                textarea.ui.input(rows=10,cols=50) #{testcase}
+            .ui.column
+              .ui.inverted.header Output
+              form#solveform(method='post')
+                textarea.ui.input(rows=10,cols=50,name="output",placeholder="paste your program's output here")
+            .ui.hidden.divider
+
+.ui.hidden.divider

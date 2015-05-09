@@ -1,0 +1,126 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet',href="/stylesheets/docs.css")
+    link(rel='stylesheet', href='/dist/semantic.min.css')
+    script(src='/javascripts/jquery.js')
+    script(src='/dist/semantic.min.js')
+    script(src='/javascripts/script.js')
+
+
+  body(id='home').grid
+
+    .ui.left.vertical.inverted.four.item.labeled.icon.sidebar.menu.push
+      .ui.hidden.divider
+      .ui.hidden.divider
+      a.item(href="/challenge")
+        i.icon.bomb
+        | Challenges
+      a.item(href="/challenges")
+        i.icon.rocket
+        | Practice
+      a.item(href="/notes")
+        i.icon.book
+        | Notes
+      a.item(href="/ask")
+        i.icon.announcement
+        | Ask
+      a.item(href="About")
+        i.icon.help.circle
+        | Help
+
+
+
+    .ui.fixed.inverted.main.menu
+      .container
+        .ui.launch.item
+          #menu-button.ui.button.icon.black
+            i.icon.content
+        a.logo.item(href="/")
+          b.text TOPHACKER
+
+        if admin
+          .right.menu
+            .item
+              a.ui.button.large.icon.black(href="#")
+                i.icon.user
+                | Admin
+
+            .item
+              a.ui.button.large.icon.black(href="/admin/challenge/add")
+                i.icon.plus
+                | Add Challenge
+            .item
+              a.ui.button.icon.black(href="/admin/problem/add")
+                i.icon.plus
+                | Add Problem
+        else
+          if !user
+            .right.menu
+              .item
+                  a.ui.button.large.icon.black(href="/login")
+                    i.icon.sign.in
+                    | Sign in
+              .item
+                  a.ui.button.icon.black(href="/register")
+                    i.icon.edit
+                    | Sign up
+          else
+            .right.menu
+              .item
+                a.ui.button.large.icon.black(href="#")
+                  i.icon.user
+                  | #{user.firstname}
+              .item
+                a.ui.button.large.icon.black(href="/logout")
+                  i.icon.sign.out
+                  | Logout
+
+    .ui.pusher
+      .ui.hidden.divider
+      .ui.hidden.divider
+      .ui.hidden.divider
+      .ui.centered.grid
+        .ui.eight.wide.column
+            //flash messages
+            include flash
+      .ui.hidden.divider
+
+
+      //-main content
+      #main-content.main-content
+        block content
+
+
+    //footer
+    .ui.hidden.divider
+    .ui.hidden.divider
+    .ui.inverted.footer.vertical.segment
+      .container
+        .ui.stackable.inverted.left.aligned.padded.grid
+          .four.wide.center.aligned.column
+            .ui.hidden.divider
+            .ui.hidden.divider
+            .left.aligned.right.floated.column
+              .text TopHacker&copy; <br>
+              .text >>> print "happy coding"
+                //i.icon.smile "
+
+          .four.wide.right.floated.column
+            .ui.small.inverted.header TOPHACKER
+            a.icon(href="/help")
+              i.icon.help.circle
+              | Help
+            br
+            br
+            a.icon(href="/about")
+              i.icon.book
+              |About
+            br
+            br
+            a.icon(href="/contact")
+              i.icon.world
+              | Contact
+

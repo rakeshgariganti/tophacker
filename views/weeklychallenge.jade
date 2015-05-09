@@ -1,0 +1,51 @@
+extends layout
+block content
+  .ui.hidden.divider
+  .ui.centered.grid
+      .ui.twelve.wide.black.column
+        .ui.inverted.large.header Top Hacker awesome weekly challenges
+        if data
+          .ui.inverted.massive.header Chellenge name: #{data.title}
+          p.small.text.pre #{data.description}
+          if data.enable
+            .ui.inverted.big.header Problems
+            .ui.definition.table
+              table(width="100% ")
+                tbody
+                  tr
+                    td No
+                    td Title
+                    td Solved By
+                    td Attempts
+                for i in data.problems
+                  -var index=data.problems.indexOf(i)+1
+                  -var url="/challenge/"+i._id
+                  -var solvedby=i.solvedby.length
+                  -var attemptedby=i.attemptedby
+
+                  tr
+                    td #{index}
+                    td #{i.title}
+                    td #{solvedby}
+                    td #{attemptedby}
+                    td
+                      a.ui.big.green.button(href=url)
+                        | Solve
+
+            .ui.right.floated.column
+              h3 Ends at:
+                .ui.red.huge.label #{data.endsat}
+          else
+            .ui.left.floated.column
+              h3 Starts at:
+                .ui.green.huge.label #{data.startsat}
+            .ui.right.floated.column
+              h3 Ends at:
+                .ui.red.huge.label #{data.endsat}
+        else
+          .ui.red.header No challenges found
+          .text.inverted.
+            Challenges haven't been added by admin yet.
+            |Keep checking this page for further notifications.
+
+  .ui.hidden.divider

@@ -1,0 +1,24 @@
+extends layout
+block content
+    .ui.hidden.divider
+    .ui.centered.inverted.padded.page.grid
+      .ui.three.column.row
+        .ui.six.wide.centered.bordered.black.column
+          .ui.inverted.large.header Login
+          .ui.form
+            form(action="/login",method="post")
+              .ui.left.icon.large.input
+                input(type="text",placeholder="username",name="username")
+                i.icon.user
+              .ui.hidden.divider
+              .ui.left.icon.large.input
+                input(type="password",placeholder="password",name="password")
+                i.icon.lock
+              .ui.hidden.divider
+              .ui.one.row.grid
+                .ui.row
+                  .right.aligned.column
+                    .ui.buttons
+                      a.ui.button.green(href="/register") Register
+                      .or
+                      button.ui.button.primary Login

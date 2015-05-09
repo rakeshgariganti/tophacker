@@ -1,0 +1,16 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    overflow-x:hidden;
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.main-content{
+
+    width: 100%;
+    min-height: 400px;
+}
